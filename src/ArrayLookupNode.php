@@ -49,4 +49,16 @@ class ArrayLookupNode extends ParentNode implements VariableExpressionNode {
   public function getKey() {
     return $this->key;
   }
+
+  /**
+   * Returns the root of the lookup.
+   *
+   * For example, given an expression like $foo['bar']['baz'],
+   * this method will return a VariableNode for $foo.
+   *
+   * @return Node
+   */
+  public function getRoot() {
+    return $this->array instanceof ArrayLookupNode ? $this->array->getRoot() : $this->array;
+  }
 }
