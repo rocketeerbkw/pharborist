@@ -45,7 +45,8 @@ class ObjectPropertyNode extends ParentNode implements VariableExpressionNode {
    * Returns the root of the property.
    *
    * For example, given an expression like $node->body['und'][0]['value'],
-   * this method will return a T_STRING TokenNode for 'body'.
+   * this method will return a T_STRING TokenNode for 'body'. Or, given an
+   * expression like $foo->bar->baz, will return a T_STRING for 'bar'.
    *
    * @return Node
    */
