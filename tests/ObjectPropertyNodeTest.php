@@ -28,5 +28,8 @@ class ObjectPropertyNodeTest extends \PHPUnit_Framework_TestCase {
 
     $property = Parser::parseExpression('$node->$field["value"]');
     $this->assertNull($property->getPropertyName());
+
+    $property = Parser::parseExpression('$foo->bar->baz');
+    $this->assertEquals('bar', $property->getPropertyName());
   }
 }
